@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Arizona Roofers | Premium Roofing" },
+      { title: "RooferGirl | Women-Led Arizona Roofing" },
       {
         name: "description",
         content:
-          "Luxury roofing craftsmanship across Phoenix, Scottsdale, Tucson and beyond.",
+          "Professional roof inspections, repairs and replacements delivered with clarity, craftsmanship and care across Arizona.",
       },
-      { name: "author", content: "Arizona Roofers" },
+      { name: "author", content: "RooferGirl" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
