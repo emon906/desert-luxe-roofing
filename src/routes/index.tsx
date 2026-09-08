@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ArrowUpRight,
   Mail,
@@ -14,15 +13,48 @@ import {
   Home,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { Reels, type Reel } from "@/components/Reels";
+import { Testimonials, type Testimonial } from "@/components/Testimonials";
 import heroImage from "@/assets/roofergirl-hero.jpg";
 import inspectionImage from "@/assets/roofergirl-inspection.jpg";
 import tileProject from "@/assets/project-tile.jpg";
 import shingleProject from "@/assets/project-shingle.jpg";
 import teamProject from "@/assets/project-team.jpg";
 import flatProject from "@/assets/project-flat.jpg";
-import roofDetail from "@/assets/roof-detail.jpg";
-import beforeRoof from "@/assets/before-roof.jpg";
-import afterRoof from "@/assets/after-roof.jpg";
+
+const REELS: Reel[] = [
+  { label: "Tile Roof Renewal", caption: "Tile renewal · Scottsdale" },
+  { label: "Storm Damage Repair", caption: "Repair day · Phoenix" },
+  { label: "Inspection Walkthrough", caption: "Inspection · Gilbert" },
+  { label: "Crew at Work", caption: "Crew craft · Tempe" },
+];
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "She walked our roof, sent photos of every problem area and explained exactly what mattered now versus later. No pressure, just honesty — that is rare.",
+    name: "Danielle R.",
+    location: "Phoenix, AZ",
+  },
+  {
+    quote:
+      "Our tile replacement finished ahead of schedule and the property was spotless each evening. The finished roof looks better than the original.",
+    name: "Marcus & Elena T.",
+    location: "Scottsdale, AZ",
+  },
+  {
+    quote:
+      "After a monsoon leak, RooferGirl was out the next morning. Careful repair, clear pricing and a follow-up check after the next storm.",
+    name: "Priya S.",
+    location: "Gilbert, AZ",
+  },
+  {
+    quote:
+      "The most professional and communicative contractor we have hired. Everything promised was delivered exactly as described.",
+    name: "James W.",
+    location: "Queen Creek, AZ",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -149,68 +181,6 @@ function SectionHead({
   );
 }
 
-function BeforeAfter() {
-  const [position, setPosition] = useState(52);
-
-  return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-12">
-      <div className="relative aspect-[16/9] overflow-hidden rounded-sm border border-border bg-card shadow-luxe">
-        <img
-          src={beforeRoof}
-          alt="Weathered tile roof before RooferGirl restoration"
-          width={1536}
-          height={864}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
-        >
-          <img
-            src={afterRoof}
-            alt="Restored terracotta tile roof after RooferGirl craftsmanship"
-            width={1536}
-            height={864}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full max-w-none object-cover"
-          />
-        </div>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 w-px bg-card shadow-luxe"
-          style={{ left: `${position}%` }}
-        >
-          <span className="absolute top-1/2 left-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-primary/20 bg-card text-primary shadow-luxe">
-            <span className="font-display text-lg">↔</span>
-          </span>
-        </div>
-        <span className="absolute top-5 left-5 rounded-full bg-card/90 px-4 py-2 text-[0.6875rem] font-medium tracking-[0.24em] text-foreground uppercase shadow-soft">
-          After
-        </span>
-        <span className="absolute top-5 right-5 rounded-full bg-card/90 px-4 py-2 text-[0.6875rem] font-medium tracking-[0.24em] text-foreground uppercase shadow-soft">
-          Before
-        </span>
-        <label className="sr-only" htmlFor="roof-comparison">
-          Compare roof before and after restoration
-        </label>
-        <input
-          id="roof-comparison"
-          type="range"
-          min="0"
-          max="100"
-          value={position}
-          onChange={(event) => setPosition(Number(event.target.value))}
-          className="absolute inset-0 z-10 h-full w-full cursor-ew-resize opacity-0"
-          aria-valuetext={`${position}% after roof visible`}
-        />
-      </div>
-      <p className="mt-5 text-center text-xs tracking-wide text-muted-foreground">
-        Drag across the image to reveal the transformation.
-      </p>
-    </div>
-  );
-}
 
 function Index() {
   return (
