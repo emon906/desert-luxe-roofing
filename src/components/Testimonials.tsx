@@ -11,12 +11,7 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
   return (
     <div className="mt-16 space-y-8 lg:space-y-0">
       {items.map((item, index) => (
-        <Reveal
-          key={item.name}
-          delay={index * 120}
-          className="lg:sticky"
-          {...({ style: { top: `${6 + index * 2.5}rem` } } as object)}
-        >
+        <Reveal key={item.name} delay={index * 120} className="lg:sticky lg:top-24">
           <article
             className="group mx-auto max-w-4xl rounded-sm border border-primary/15 bg-card p-9 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:shadow-luxe sm:p-14 lg:mt-8"
             style={{ transform: `scale(${1 - (items.length - 1 - index) * 0.012})` }}
