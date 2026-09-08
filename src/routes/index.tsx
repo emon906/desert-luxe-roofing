@@ -352,15 +352,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 4 — BEFORE & AFTER */}
-      <section className="px-0 py-28 lg:py-40">
-        <div className="px-6 sm:px-10 lg:px-16">
-          <SectionHead center eyebrow="Before & After" title="A transformation built to last." copy="Move the slider to see how considered materials, precise installation and a meticulous finish restore both protection and curb appeal." />
-        </div>
-        <Reveal delay={140} className="mt-16"><BeforeAfter /></Reveal>
-      </section>
-
-      {/* 5 — PROJECTS */}
+      {/* 4 — PROJECTS (single image section) */}
       <section id="projects" className="px-6 py-28 sm:px-10 lg:px-16 lg:py-40">
         <div className="mx-auto max-w-7xl">
           <SectionHead eyebrow="Featured Craft" title="Roofing made beautiful." copy="A closer look at the materials, profiles and finishes RooferGirl brings to Arizona homes." />
@@ -382,22 +374,24 @@ function Index() {
         </div>
       </section>
 
-      {/* 6 — MIXED SHOWCASE */}
-      <section className="bg-secondary/50 px-6 py-28 sm:px-10 lg:px-16 lg:py-40">
+      {/* 5 — REELS */}
+      <section id="reels" className="overflow-hidden bg-secondary/50 px-6 py-28 sm:px-10 lg:px-16 lg:py-40">
         <div className="mx-auto max-w-7xl">
-          <SectionHead eyebrow="People & Precision" title="Professional care at every step." copy="From the first close-up inspection to the final clean line, RooferGirl brings experienced eyes and thoughtful hands to your roof." />
-          <div className="mt-16 grid gap-6 lg:grid-cols-12">
-            <Reveal className="lg:col-span-5"><Photo src={teamProject} alt="RooferGirl team completing professional roof work" width={1024} height={1280} ratio="9 / 16" /></Reveal>
-            <div className="grid gap-6 lg:col-span-7">
-              <Reveal delay={90}><Photo src={roofDetail} alt="Detailed roof vent flashing workmanship" width={1536} height={864} ratio="16 / 9" /></Reveal>
-              <div className="grid gap-6 sm:grid-cols-2">
-                <Reveal delay={160}><Photo src={inspectionImage} alt="Detailed residential tile roof inspection" width={1024} height={1280} ratio="1 / 1" /></Reveal>
-                <Reveal delay={230}><Photo src={tileProject} alt="Beautifully completed Arizona tile roofing project" width={1536} height={960} ratio="1 / 1" /></Reveal>
-              </div>
-            </div>
-          </div>
+          <SectionHead center eyebrow="Reels" title="See the work in motion." />
+          <Reveal delay={140} className="mt-16">
+            <Reels reels={REELS} />
+          </Reveal>
         </div>
       </section>
+
+      {/* 6 — TESTIMONIALS */}
+      <section id="testimonials" className="px-6 py-28 sm:px-10 lg:px-16 lg:py-40">
+        <div className="mx-auto max-w-7xl">
+          <SectionHead center eyebrow="Testimonials" title="Trusted work. Real experiences." />
+          <Testimonials items={TESTIMONIALS} />
+        </div>
+      </section>
+
 
       {/* 7 — CONTACT / CTA */}
       <section id="contact" className="px-6 py-28 sm:px-10 lg:px-16 lg:py-40">
